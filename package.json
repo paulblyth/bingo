@@ -6,6 +6,7 @@
     "start": "webpack-dev-server --config config/webpack.config.dev.js --devtool source-map --progress --colors --inline --hot --content-base dist/"
   },
   "devDependencies": {
+    "angular": "^1.5.8",
     "babel-core": "^6.17.0",
     "babel-eslint": "^7.0.0",
     "babel-loader": "^6.2.5",
