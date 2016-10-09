@@ -5,21 +5,30 @@
         <title>Bingo</title>
     </head>
     <body>
-        <div id="app" aria-role="application"></div>
-        <div ng-controller="TicketListController" id="tickets">
-            <div ng-repeat="ticket in tickets" class="ticket">
-                <table>
-                    <thead></thead>
-                    <tbody>
-                        <tr ng-repeat="row in ticket.rows">
-                            <td ng-repeat="cell in row.cells">{{cell.number}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <span class="remaining">
-                    <span class="number">5</span>
-                    <span>to go</span>
-                </span>
+        <div id="bingo">
+            <div ng-controller="NumberSelectController">
+                <span id="current-number">{{ currentNumber }}</span>
+                <button ng-click="getNextNumber()" ng-disabled="disableButton">Next number</button>
+            </div>
+            <div ng-controller="TicketListController" id="tickets">
+                <div ng-repeat="ticket in tickets" class="ticket">
+                    <table>
+                        <thead></thead>
+                        <tbody>
+                            <tr ng-repeat="row in ticket.rows">
+                                <td ng-repeat="cell in row.cells track by $index">
+                                    <span ng-class="cell.called ? 'called' : 'not-called'">
+                                        {{cell.number}}
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <span class="remaining">
+                        <span class="number">5</span>
+                        <span>to go</span>
+                    </span>
+                </div>
             </div>
         </div>
     </body>
