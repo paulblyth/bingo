@@ -1,9 +1,51 @@
 @import "~normalize.css/normalize.css";
+@import "common/mixins";
+@import "common/variables";
 
-table {
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    td {
-        border: 1px solid #cccccc;
+#tickets {
+    display: flex;
+    flex-direction: column;
+
+    .ticket {
+        padding: $ticket-padding;
+        background: $ticket-bg;
+        border-bottom: $ticket-border-bottom;
+
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        text-align: center;
+
+        span.remaining {
+            text-transform: uppercase;
+            width: $button-width;
+            word-spacing: $button-width;
+            border: $button-border;
+            @include border-radius(5px);
+            margin: 0 10px;
+            @include linear-gradient(to bottom, rgba(107, 181, 111, 1) 0%, rgba(27, 142, 68, 1) 50%, rgba(0, 125, 63, 1) 51%, rgba(24, 99, 49, 1) 100%);
+            color: rgba(255, 255, 255, 1);
+            cursor: pointer;
+            vertical-align: middle;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            span.number {
+                font-size: 30px;
+            }
+
+        }
+
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+
+            td {
+                width: 25px;
+                height: 25px;
+                border: $table-border;
+            }
+        }
     }
 }
