@@ -9,7 +9,7 @@ export default class {
 
         this.NumbersService = NumbersService;
 
-        this.usedNumbers = [];
+        this.$scope.usedNumbers = [];
 
         let self = this;
 
@@ -23,7 +23,7 @@ export default class {
     generateNextNumber () {
         let number = this.generateNumber();
 
-        if (this.usedNumbers.includes(number)) {
+        if (this.$scope.usedNumbers.includes(number)) {
             return this.generateNextNumber();
         }
 
@@ -35,12 +35,12 @@ export default class {
     }
 
     setCurrentNumber (number) {
-        this.usedNumbers.push(number);
+        this.$scope.usedNumbers.unshift(number);
         this.NumbersService.getNumbers()[number - 1].setCalled(true);
 
         this.$scope.currentNumber = number;
 
-        if (this.usedNumbers.length === this.NumbersService.getNumbers().length) {
+        if (this.$scope.usedNumbers.length === this.NumbersService.getNumbers().length) {
             this.$scope.disableButton = true;
         }
     }

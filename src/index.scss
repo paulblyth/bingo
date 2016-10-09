@@ -2,52 +2,151 @@
 @import "common/styles/mixins";
 @import "common/styles/variables";
 
-#tickets {
+html, body {
+    height: 100%;
+    text-transform: lowercase;
+    background-color: $body-bg;
+
+    header {
+        background-color: rgba(255, 255, 255, 1);
+
+        img {
+            height: 50px;
+            margin: 10px;
+        }
+    }
+
+    h1, h2, h3, h4 {
+        font-weight: normal;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+#bingo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
-    .ticket {
-        padding: $ticket-padding;
-        background: $ticket-bg;
-        border-bottom: $ticket-border-bottom;
-
+    #number-generator {
+        flex-grow: 1;
         display: flex;
         flex-direction: row;
-        align-items: stretch;
-        text-align: center;
 
-        span.remaining {
-            text-transform: uppercase;
-            width: $button-width;
-            word-spacing: $button-width;
-            border: $button-border;
-            @include border-radius(5px);
-            margin: 0 10px;
-            @include linear-gradient(to bottom, rgba(107, 181, 111, 1) 0%, rgba(27, 142, 68, 1) 50%, rgba(0, 125, 63, 1) 51%, rgba(24, 99, 49, 1) 100%);
-            color: rgba(255, 255, 255, 1);
-            cursor: pointer;
-            vertical-align: middle;
+        div#current-number {
+            order: 1;
             display: flex;
+            flex-grow: 1;
             flex-direction: column;
             justify-content: center;
+            align-content: center;
+            text-align: center;
 
-            span.number {
-                font-size: 30px;
+            span {
+                font-size: 72px;
+                color: rgba(255, 255, 255, 1);
+                margin: 40px;
             }
 
+            button {
+                flex-grow: 0;
+                margin: 0 auto;
+                background: rgba(190, 1, 50, 1);
+                border: 1px solid rgba(255, 255, 255, 1);
+                color: rgba(255, 255, 255, 1);
+                text-transform: lowercase;
+                @include border-radius(5px);
+            }
         }
 
-        table {
-            border-spacing: 0;
-            border-collapse: collapse;
+        div#called-numbers {
+            flex-grow: 0;
+            order: 0;
+            padding: 10px;
+            color: rgba(255, 255, 255, 1);
 
-            td {
-                width: 25px;
-                height: 25px;
-                border: $table-border;
+            ol {
+                list-style: none;
+                padding: 0;
+                text-align: center;
 
-                span {
-                    display: block;
+                li {
+                    border-bottom: 1px dashed rgba(255, 255, 255, 1);
+                    padding: 5px 0;
+
+                    @for $i from 5 through 15 {
+                        &:nth-child(#{$i}) {
+                            opacity: 1 / ($i - 5);
+                        }
+                    }
+
+                    &:nth-of-type(1n+15) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    #tickets {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            text-align: center;
+            background: rgba(190, 1, 50, 1);
+            color: rgba(255, 255, 255, 1);
+            margin: 0;
+            padding: 20px 0;
+        }
+
+        .ticket {
+            padding: $ticket-padding;
+            background: $ticket-bg;
+            border-bottom: $ticket-border-bottom;
+
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            text-align: center;
+
+            span.remaining {
+                text-transform: uppercase;
+                width: $button-width;
+                word-spacing: $button-width;
+                border: $button-border;
+                @include border-radius(5px);
+                margin: 0 10px;
+                @include linear-gradient(to bottom, rgba(107, 181, 111, 1) 0%, rgba(27, 142, 68, 1) 50%, rgba(0, 125, 63, 1) 51%, rgba(24, 99, 49, 1) 100%);
+                color: rgba(255, 255, 255, 1);
+                cursor: pointer;
+                vertical-align: middle;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                span.number {
+                    font-size: 30px;
+                }
+
+            }
+
+            table {
+                border-spacing: 0;
+                border-collapse: collapse;
+
+                td {
+                    width: 25px;
+                    height: 25px;
+                    border: $table-border;
 
                     &.called {
                         color: red;
