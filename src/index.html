@@ -5,21 +5,31 @@
         <title>Bingo</title>
     </head>
     <body>
+        <header>
+            <img src="./common/assets/tombola.png" alt="tombola"/>
+        </header>
         <div id="bingo">
-            <div ng-controller="NumberSelectController">
-                <span id="current-number">{{ currentNumber }}</span>
-                <button ng-click="getNextNumber()" ng-disabled="disableButton">Next number</button>
+            <div ng-controller="NumberSelectController" id="number-generator">
+                <div id="current-number">
+                    <span>{{ currentNumber }}</span>
+                    <button ng-click="getNextNumber()" ng-disabled="disableButton">Next number</button>
+                </div>
+                <div id="called-numbers">
+                    <h3 class="sr-only">called</h3>
+                    <ol>
+                        <li ng-repeat="number in usedNumbers">{{number}}</li>
+                    </ol>
+                </div>
             </div>
             <div ng-controller="TicketListController" id="tickets">
+                <h2>Tickets</h2>
                 <div ng-repeat="ticket in tickets" class="ticket">
                     <table>
                         <thead></thead>
                         <tbody>
                             <tr ng-repeat="row in ticket.rows">
-                                <td ng-repeat="cell in row.cells track by $index">
-                                    <span ng-class="cell.called ? 'called' : 'not-called'">
-                                        {{cell.number}}
-                                    </span>
+                                <td ng-repeat="cell in row.cells track by $index" ng-class="cell.called ? 'called' : 'not-called'">
+                                    {{cell.number}}
                                 </td>
                             </tr>
                         </tbody>
