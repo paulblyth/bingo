@@ -45,6 +45,14 @@
                 width: 25px;
                 height: 25px;
                 border: $table-border;
+
+                span {
+                    display: block;
+
+                    &.called {
+                        color: red;
+                    }
+                }
             }
         }
     }

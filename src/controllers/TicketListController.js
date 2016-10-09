@@ -22,10 +22,7 @@ export default class {
             // if our current number is less than the constraint then
             // get the appropriate number to return
             if (numbers[x] < RULES.COLUMN_CONSTRAINTS[i]) {
-                console.log(numbers[x]);
-                // console.log(this.NumbersService.getNumbers());
                 number = this.NumbersService.getNumbers()[(parseInt(numbers[x], 10) - 1)];
-                console.log(number);
                 x++;
             }
 
