@@ -12,7 +12,7 @@
                     <thead></thead>
                     <tbody>
                         <tr ng-repeat="row in ticket.rows">
-                            <td ng-repeat="cell in row.cells">{{cell.number}}</td>
+                            <td ng-repeat="cell in row.cells track by $index">{{cell.number}}</td>
                         </tr>
                     </tbody>
                 </table>
