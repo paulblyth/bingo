@@ -19,6 +19,6 @@ class NumbersService {
     getNumbers () {
         return this.numbers;
     }
-};
+}
 
 export default NumbersService;

@@ -1,6 +1,4 @@
-import { RULES } from './../common/constants';
-
-export default class {
+class NumberSelectController {
 
     constructor ($scope, NumbersService) {
         this.$scope = $scope;
@@ -44,4 +42,6 @@ export default class {
             this.$scope.disableButton = true;
         }
     }
-};
+}
+
+export default NumberSelectController;
