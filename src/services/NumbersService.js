@@ -4,8 +4,6 @@ import NumberModel from './../models/NumberModel';
  * NumbersService class
  *
  * Creates a number model for every number in the game (1-90)
- *
- * @module services/NumbersService
  */
 class NumbersService {
 

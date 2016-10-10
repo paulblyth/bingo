@@ -10,8 +10,6 @@ const TICKETSTRING = '0117224752043653607026374974812334557583021540588819284467
  * TicketsService class
  *
  * Builds and returns the tickets
- *
- * @module services/TicketsService
  */
 class TicketsService {
 

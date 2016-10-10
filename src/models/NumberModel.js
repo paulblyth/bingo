@@ -2,8 +2,6 @@
  * NumberModel class
  *
  * Model for each number
- *
- * @module models/NumberModel
  */
 class NumberModel {
 

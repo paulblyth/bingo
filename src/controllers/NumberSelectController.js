@@ -2,8 +2,6 @@
  * NumberSelectController class
  *
  * Controller for the number generator
- *
- * @module controllers/NumberSelectController
  */
 class NumberSelectController {
 

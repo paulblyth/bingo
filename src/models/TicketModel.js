@@ -2,8 +2,6 @@
  * TicketModel class
  *
  * Model for each ticket
- *
- * @module models/TicketModel
  */
 class TicketModel {
 

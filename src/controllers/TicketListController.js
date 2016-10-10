@@ -2,8 +2,6 @@
  * TicketListController class
  *
  * Sets tickets on the scope for the ng-controller directive
- *
- * @module controllers/TicketListController
  */
 class TicketListController {
 

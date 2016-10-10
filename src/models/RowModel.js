@@ -2,8 +2,6 @@
  * RowModel class
  *
  * Model for each row
- *
- * @module models/RowModel
  */
 class RowModel {
 
