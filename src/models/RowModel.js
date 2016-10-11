@@ -12,6 +12,22 @@ class RowModel {
      */
     constructor (cells) {
         this.cells = cells;
+        this.remaining = cells.length;
+    }
+
+    /**
+     * Method to count the remaining numbers left to call in a row
+     */
+    updateRemaining () {
+        let remaining = this.cells.length;
+
+        for (let i = 0; i < this.cells.length; i++) {
+            if (!this.cells[i] || this.cells[i].called) {
+                remaining--;
+            }
+        }
+
+        this.remaining = remaining;
     }
 }
 

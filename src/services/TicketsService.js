@@ -12,11 +12,12 @@ const TICKETSTRING = '0117224752043653607026374974812334557583021540588819284467
  * Builds and returns the tickets
  */
 class TicketsService {
-
     /**
      * Sets up the inital state of the instance
      */
-    constructor () {
+    constructor ($rootScope) {
+        this.$rootScope = $rootScope;
+        this.$scope = $rootScope.$new();
         this.allNumbers = null;
         this.tickets = null;
     }
@@ -48,7 +49,7 @@ class TicketsService {
 
             // if our current number is less than the constraint then
             // get the appropriate number model to add to the array
-            if (numbers[x] < RULES.COLUMN_CONSTRAINTS[i]) {
+            if (numbers[x] <= RULES.COLUMN_CONSTRAINTS[i]) {
                 number = this.allNumbers[(parseInt(numbers[x], 10) - 1)];
                 x++;
             }
@@ -102,6 +103,15 @@ class TicketsService {
     }
 
     /**
+     * Updates the remaining number count on the tickets
+     */
+    updateTickets () {
+        for (let i = 0; i < this.tickets.length; i++) {
+            this.tickets[i].updateRemaining();
+        }
+    }
+
+    /**
      * Returns the tickets; generates the tickets if they haven't already been built
      *
      * @param {Array} allNumbers - array of numbers within the game
@@ -114,6 +124,15 @@ class TicketsService {
         if (!this.tickets) {
             this.tickets = this.buildTickets();
         }
+
+        // watch changes for when a number is called
+        let $scope = this.$rootScope.$new();
+
+        $scope.numbers = allNumbers;
+        $scope.$watch('numbers', () => {
+            // updates the tickets
+            this.updateTickets();
+        }, true);
 
         return this.tickets;
     }
