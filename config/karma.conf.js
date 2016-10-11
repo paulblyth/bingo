@@ -67,12 +67,10 @@ module.exports = function (config) {
         plugins: [
             'karma-chai',
             'karma-coverage',
-            'karma-jquery',
             'karma-junit-reporter',
             'karma-mocha',
             'karma-mocha-reporter',
             'karma-notify-reporter',
-            'karma-nyan-reporter',
             'karma-phantomjs-launcher',
             'karma-phantomjs-shim',
             'karma-sinon',

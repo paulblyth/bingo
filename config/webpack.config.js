@@ -42,6 +42,27 @@ module.exports = {
                 test: /\.css$/,
                 loader: "style-loader!css-loader"
             },
+            // FONTS
+            {
+                test: /fonts\/.*\.woff2(\?.*)?$/,
+                loader: 'url?limit=10000&mimetype=application/font-woff2'
+            },
+            {
+                test: /fonts\/.*\.woff(\?.*)?$/,
+                loader: 'url?limit=10000&mimetype=application/font-woff'
+            },
+            {
+                test: /fonts\/.*\.ttf(\?.*)?$/,
+                loader: 'url?limit=10000&mimetype=application/octet-stream'
+            },
+            {
+                test: /fonts\/.*\.eot(\?.*)?$/,
+                loader: 'file'
+            },
+            {
+                test: /fonts\/.*\.svg(\?.*)?$/,
+                loader: 'url?mimetype=image/svg+xml'
+            },
             // IMAGE LOADER
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
