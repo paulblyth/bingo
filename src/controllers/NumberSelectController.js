@@ -70,4 +70,5 @@ class NumberSelectController {
     }
 }
 
-export default NumberSelectController;
+// eslint-disable-next-line
+export default /*@ngInject*/ NumberSelectController;

@@ -5,6 +5,7 @@
 
 var path              = require('path');
 var webpack           = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var context           = path.join(__dirname, '..');
 
@@ -24,11 +25,8 @@ module.exports = {
         loaders: [
             {
                 test: /\.js$/,
-                loader: 'babel',
-                exclude: /(node_modules\/)(?!8-bit)/,
-                query: {
-                    presets: ['es2015']
-                }
+                loader: 'ng-annotate!babel?presets[]=es2015',
+                exclude: /(node_modules\/)(?!8-bit)/
             },
             // HTML
             {
@@ -50,5 +48,12 @@ module.exports = {
                 loader: 'file'
             }
         ]
-    }
+    },
+
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            inject: 'head'
+        })
+    ]
 };

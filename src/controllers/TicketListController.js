@@ -18,4 +18,5 @@ class TicketListController {
 
 }
 
-export default TicketListController;
+// eslint-disable-next-line
+export default /*@ngInject*/ TicketListController;
