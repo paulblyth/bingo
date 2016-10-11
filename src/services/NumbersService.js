@@ -37,4 +37,5 @@ class NumbersService {
     }
 }
 
-export default NumbersService;
+// eslint-disable-next-line
+export default /*@ngInject*/ NumbersService;

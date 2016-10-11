@@ -142,4 +142,5 @@ class TicketsService {
 
 }
 
-export default TicketsService;
+// eslint-disable-next-line
+export default /*@ngInject*/ TicketsService;
