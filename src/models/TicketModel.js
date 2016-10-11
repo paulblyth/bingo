@@ -24,7 +24,7 @@ class TicketModel {
         for (let i = 0; i < this.rows.length; i++) {
             this.rows[i].updateRemaining();
 
-            if (!remaining || this.rows[i].remaining < remaining) {
+            if (remaining === null || this.rows[i].remaining < remaining) {
                 remaining = this.rows[i].remaining;
             }
         }
