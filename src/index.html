@@ -27,17 +27,23 @@
                     <table>
                         <thead></thead>
                         <tbody>
-                            <tr ng-repeat="row in ticket.rows">
+                            <tr ng-repeat="row in ticket.rows" class="remaining-{{row.remaining}}">
                                 <td ng-repeat="cell in row.cells track by $index" ng-class="cell.called ? 'called' : 'not-called'">
                                     {{cell.number}}
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <span class="remaining">
-                        <span class="number">5</span>
+                    <span class="remaining remaining-{{ticket.remaining}}">
+                        <span class="number">{{ticket.remaining}}</span>
                         <span>to go</span>
                     </span>
+                </div>
+            </div>
+            <div id="winner-overlay" ng-if="bingo">
+                <div id="winner-alert">
+                    <h2>Bingo!</h2>
+                    <p>Congratulations. You have won!</p>
                 </div>
             </div>
         </div>

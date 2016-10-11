@@ -3,3 +3,9 @@
       background-color: rgba(255, 212, 84, 1);
   }
 }
+
+@include keyframes(flash-remaining) {
+  50% {
+      box-shadow: 0 0 5px 5px rgba(255, 212, 84, 1);
+  }
+}

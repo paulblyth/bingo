@@ -5,6 +5,7 @@
 
 html, body {
     height: 100%;
+    position: relative;
     text-transform: lowercase;
     background-color: $body-bg;
 
@@ -130,8 +131,8 @@ html, body {
                 width: $button-width;
                 word-spacing: $button-width;
                 border: $button-border;
-                @include border-radius(5px);
                 margin: 0 10px;
+                @include border-radius(5px);
                 @include linear-gradient(to bottom, rgba(107, 181, 111, 1) 0%, rgba(27, 142, 68, 1) 50%, rgba(0, 125, 63, 1) 51%, rgba(24, 99, 49, 1) 100%);
                 color: rgba(255, 255, 255, 1);
                 cursor: pointer;
@@ -139,6 +140,10 @@ html, body {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+
+                &.remaining-1 {
+                    @include animation('flash-remaining 2s infinite');
+                }
 
                 span.number {
                     font-size: 30px;
@@ -162,6 +167,33 @@ html, body {
                     }
                 }
             }
+        }
+    }
+}
+
+#winner-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #winner-alert {
+        @include border-radius(5px);
+        text-align: center;
+        padding: 20px 180px;
+        border: 1px solid rgba(155, 155, 155, 1);
+        background: rgba(255, 255, 255, 1);
+
+        h2 {
+            text-transform: uppercase;
+            color: rgba(255, 212, 84, 1);
+            text-shadow: 0 0 1px rgba(0, 0, 0, 1);
+            font-size: 72px;
         }
     }
 }
