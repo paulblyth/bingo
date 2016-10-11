@@ -44,7 +44,7 @@ Arguably more useful than `:9000`, this is the port the `npm start` command will
 #### `:9002` - BrowserSync UI
 This is the UI for BrowserSync to toggle settings etc.
 
-#### `:9003` - Karma (@todo!)
+#### `:9003` - Karma
 Runs the unit tests in the browser for debugging. Also triggers the command line run of the tests.
 
 #### `:9004` - Test coverage
@@ -73,7 +73,7 @@ By default this repo looks at `src/index.js` for it's entry point to the app.
 
 This basically extends the `webpack.config.js` file with config only appropriate to development; e.g. development settings and plugins.
 
-#### Karma (@todo!)
+#### Karma
 ```
 ./config/webpack.config.dev.js
 ```
