@@ -108,6 +108,9 @@ class TicketsService {
     updateTickets () {
         for (let i = 0; i < this.tickets.length; i++) {
             this.tickets[i].updateRemaining();
+            if (this.tickets[i].remaining === 0) {
+                this.$rootScope.bingo = true;
+            }
         }
     }
 
